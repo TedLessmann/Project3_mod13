@@ -24,3 +24,8 @@ class TestInputValidation(unittest.TestCase):
         self.assertFalse(is_valid_symbol("APPL123"))  # Invalid symbol (contains numbers)
         self.assertFalse(is_valid_symbol("A"))  # Invalid symbol (too short)
         self.assertFalse(is_valid_symbol("AAPLAPPLE"))  # Invalid symbol (too long)
+    
+    def test_valid_chart_type(self):
+        self.assertTrue(is_valid_chart_type("1"))  # Valid chart type
+        self.assertTrue(is_valid_chart_type("2"))  # Valid chart type
+        self.assertFalse(is_valid_chart_type("3"))  # Invalid chart type
