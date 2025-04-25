@@ -48,3 +48,6 @@ class TestInputValidation(unittest.TestCase):
         self.assertFalse(is_valid_date("04-04-02"))  # Invalid date (year must be four number)
         self.assertFalse(is_valid_date("2025-4-02"))  # Invalid date (month must be two numbers)
         self.assertFalse(is_valid_date(None))  # Invalid date (null)
+
+if __name__ == "__main__":
+    unittest.main()
