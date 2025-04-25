@@ -15,3 +15,12 @@ def is_valid_time_series(time_series):
 
 def is_valid_date(date_str):
     return validate_date(date_str)
+
+class TestInputValidation(unittest.TestCase):
+
+    def test_valid_symbol(self):
+        self.assertTrue(is_valid_symbol("AAPL"))  # Valid symbol
+        self.assertFalse(is_valid_symbol("apple"))  # Invalid symbol (lowercase)
+        self.assertFalse(is_valid_symbol("APPL123"))  # Invalid symbol (contains numbers)
+        self.assertFalse(is_valid_symbol("A"))  # Invalid symbol (too short)
+        self.assertFalse(is_valid_symbol("AAPLAPPLE"))  # Invalid symbol (too long)
