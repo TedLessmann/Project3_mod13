@@ -28,4 +28,5 @@ class TestInputValidation(unittest.TestCase):
     def test_valid_chart_type(self):
         self.assertTrue(is_valid_chart_type("1"))  # Valid chart type
         self.assertTrue(is_valid_chart_type("2"))  # Valid chart type
-        self.assertFalse(is_valid_chart_type("3"))  # Invalid chart type
+        self.assertFalse(is_valid_chart_type("3")) # Invalid chart type
+        self.assertFalse(is_valid_chart_type("a")) # Invalid chart type (non-numerical)
