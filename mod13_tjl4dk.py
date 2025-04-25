@@ -32,3 +32,10 @@ class TestInputValidation(unittest.TestCase):
         self.assertFalse(is_valid_chart_type("3")) # Invalid chart type
         self.assertFalse(is_valid_chart_type("a")) # Invalid chart type (non-numerical)
         self.assertFalse(is_valid_symbol(None)) # Invalid chart type (null)
+
+    def test_valid_time_series(self):
+        self.assertTrue(is_valid_time_series("1"))  # Valid time series
+        self.assertTrue(is_valid_time_series("4"))  # Valid time series
+        self.assertFalse(is_valid_time_series("5"))  # Invalid time series 
+        self.assertFalse(is_valid_time_series("a"))  # Invalid time series (non-numerical)
+        self.assertFalse(is_valid_time_series(None))  # Invalid time series (null)
