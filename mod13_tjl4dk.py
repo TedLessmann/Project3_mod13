@@ -13,6 +13,7 @@ def is_valid_chart_type(chart_type):
 def is_valid_time_series(time_series):
     return validate_time_series(time_series)
 
+# only one function is needed to check if an entered date is valid
 def is_valid_date(date_str):
     return validate_date(date_str)
 
@@ -38,3 +39,12 @@ class TestInputValidation(unittest.TestCase):
         self.assertFalse(is_valid_time_series("5"))  # Invalid time series 
         self.assertFalse(is_valid_time_series("a"))  # Invalid time series (non-numerical)
         self.assertFalse(is_valid_time_series(None))  # Invalid time series (null)
+    
+    def test_valid_date(self):
+        self.assertTrue(is_valid_date("2025-04-25"))  # Valid date
+        self.assertFalse(is_valid_date("2025-04-31"))  # Invalid date (April 31st does not exist)
+        self.assertFalse(is_valid_date("2025-13-25"))  # Invalid date (there is not 13 months)
+        self.assertFalse(is_valid_date("2025-04-2"))  # Invalid date (day must be two numbers)
+        self.assertFalse(is_valid_date("04-04-02"))  # Invalid date (year must be four number)
+        self.assertFalse(is_valid_date("2025-4-02"))  # Invalid date (month must be two numbers)
+        self.assertFalse(is_valid_date(None))  # Invalid date (null)
